@@ -8,17 +8,13 @@ if (weekdayNumber == 4) {
     // Thursday time to count down
     var countDownDate = dateObj;
     countDownDate.setHours(19,30,0); // Meeting starts at 7:30 pm
-    // Finish the welcome phrase
-    document.getElementById("weekDay").innerHTML = ' a la reunión del jueves';
-}
-else if (weekdayNumber == 6) {
+} else if (weekdayNumber == 6) {
     // Saturday time to count down
     var countDownDate = dateObj;
     countDownDate.setHours(17,30,0); // Meeting starts at 5:30 pm
-    // Finish the welcome phrase
-    document.getElementById("weekDay").innerHTML = ' a la reunión del sábado';
-}    
-
+} else {
+    document.getElementById("count").innerHTML = 'No hay una reunión programada para hoy';
+}
 
 // ContDown
 if (countDownDate) {
@@ -39,20 +35,22 @@ if (countDownDate) {
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
     
         // Display the result in the element with id="count"
-        
-        
         if (days != 0) { 
             document.getElementById("count").innerHTML = days + " dias " + hours + "h " + minutes + "m " + seconds + "s ";
         } else if (hours != 0) {
             document.getElementById("count").innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
         } else {
             document.getElementById("count").innerHTML = minutes + "m " + seconds + "s ";
+            if (minutes < 3) {
+                document.getElementById("alert").innerHTML = "Dentro de poco la reunión empieza";
+            }
         }
 
         // If the count down is finished, write some text
         if (distance < 0) {
         clearInterval(x);
-        document.getElementById("count").innerHTML = "Inicia la reunión";
+        document.getElementById("alert").innerHTML = "";
+        document.getElementById("count").innerHTML = "Reunión Iniciada";
         }
 
     }, 1000);
