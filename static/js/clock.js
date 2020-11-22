@@ -40,25 +40,25 @@ Clock.prototype.draw=function() {
     this.ctx.save();
     this.ctx.translate(100,100);
 
-    this.ctx.font = "bold 20px monospace";
+    this.ctx.font = "bold 20px serif";
     this.ctx.fillStyle="white";
-    this.ctx.fillText(12,-12,-70);
+    this.ctx.fillText(12,-10,-69);
     this.ctx.fillText(6,-6,82);
     this.ctx.fillText(1,32,-58);
     this.ctx.fillText(7,-45,70);
     this.ctx.fillText(2,60,-32);
-    this.ctx.fillText(8,-72,46);
+    this.ctx.fillText(8,-70,46);
     this.ctx.fillText(3,70,5);
     this.ctx.fillText(9,-82,5);
     this.ctx.fillText(4,60,47);
-    this.ctx.fillText(10,-71,-33);
+    this.ctx.fillText(10,-72,-29);
     this.ctx.fillText(5,33,72);
     this.ctx.fillText(11,-47,-57);
 
     for (var i=0;i<30;i++) {
         this.ctx.save();
         this.ctx.rotate(i*this.rad60);
-        this.ctx.lineWidth = 2;
+        this.ctx.lineWidth = 1;
         this.ctx.strokeStyle = "white";
         this.ctx.beginPath();
         this.ctx.moveTo(0,-90);
@@ -74,7 +74,7 @@ Clock.prototype.draw=function() {
     for (var i=0;i<6;i++) {
         this.ctx.save();
         this.ctx.rotate(i*this.rad12);
-        this.ctx.lineWidth = 5;
+        this.ctx.lineWidth = 3;
         this.ctx.strokeStyle = "white";
         this.ctx.beginPath();
         this.ctx.moveTo(0,-85);
@@ -89,11 +89,12 @@ Clock.prototype.draw=function() {
 
     this.ctx.save();
     this.ctx.rotate(this.hours*this.rad12+this.minutes/60*this.rad12);
-    this.ctx.lineWidth = 7;
+    this.ctx.lineWidth = 6;
     this.ctx.strokeStyle = "white";
     this.ctx.beginPath();
+    this.ctx.lineCap = "round";
     this.ctx.moveTo(0,7);
-    this.ctx.lineTo(0,-60);
+    this.ctx.lineTo(0,-55);
     this.ctx.stroke();
     this.ctx.restore();
 
@@ -102,6 +103,7 @@ Clock.prototype.draw=function() {
     this.ctx.lineWidth = 4;
     this.ctx.strokeStyle = "white";
     this.ctx.beginPath();
+    this.ctx.lineCap = "round";
     this.ctx.moveTo(0,10);
     this.ctx.lineTo(0,-70);
     this.ctx.stroke();
@@ -110,7 +112,7 @@ Clock.prototype.draw=function() {
     this.ctx.save();
     this.ctx.rotate(this.seconds*this.rad60);
     this.ctx.lineWidth = 1;
-    this.ctx.strokeStyle = "red";
+    this.ctx.strokeStyle = "OrangeRed";
     this.ctx.beginPath();
     this.ctx.moveTo(0,15);
     this.ctx.lineTo(0,-80);
@@ -119,7 +121,7 @@ Clock.prototype.draw=function() {
 
     this.ctx.restore();
     
-    this.ctx.fillStyle = "red";
+    this.ctx.fillStyle = "OrangeRed";
     this.ctx.beginPath();
     this.ctx.arc(100, 100, 4, 0, 2 * Math.PI, false);
     this.ctx.fill();
