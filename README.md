@@ -1,8 +1,8 @@
 # Countdown
 
-[![Created Repository](https://badges.pufler.dev/created/ariel-mn/countdown)](https://github.com/ariel-mn/countdown)
-[![Updated Repository](https://badges.pufler.dev/updated/ariel-mn/countdown)](https://github.com/ariel-mn/countdown)
-[![Visits Repository](https://badges.pufler.dev/visits/ariel-mn/countdown)](https://github.com/ariel-mn/countdown)
+[![Created Repository](https://badges.pufler.dev/created/ariel-mn/countdown/)](https://github.com/ariel-mn/countdown)
+[![Updated Repository](https://badges.pufler.dev/updated/ariel-mn/countdown/)](https://github.com/ariel-mn/countdown)
+[![Visits Repository](https://badges.pufler.dev/visits/ariel-mn/countdown/)](https://github.com/ariel-mn/countdown)
 
 ## Countdown for meetings
 
