@@ -107,7 +107,7 @@ Clock.prototype.draw=function() {
     // Hours hand of the clock
     this.ctx.save();
     this.ctx.rotate(this.hours*this.rad12+this.minutes/60*this.rad12);
-    this.ctx.lineWidth = 6;
+    this.ctx.lineWidth = 5;
     this.ctx.strokeStyle = "white";
     this.ctx.beginPath();
     this.ctx.lineCap = "round";
