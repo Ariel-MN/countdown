@@ -1,7 +1,9 @@
 body {
     background-color: black;
 }
-
 #clock {
     max-width:90%;
+}
+.text-orange {
+    color:orangered;
 }
