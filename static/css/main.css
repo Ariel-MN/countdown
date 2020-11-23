@@ -1,9 +1,16 @@
 body {
     background-color: black;
+    cursor: default;
 }
 #clock {
     max-width:90%;
 }
 .text-orange {
     color:orangered;
+}
+.non-selectable {
+   -moz-user-select: none; 
+   -webkit-user-select: none;
+   -ms-user-select: none;
+   user-select: none; 
 }
