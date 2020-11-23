@@ -12,10 +12,9 @@
   
 </span>
 
-<span align="center">
-  
+
+<p align="center">
   <a href="https://ariel-mn.github.io/countdown/static/img/presentation.mp4" title="Countdown presentation" target="_blank">
     <img width="80%" src="https://ariel-mn.github.io/countdown/static/img/poster.png" alt="Presentation video" />
   </a>
-  
-</span>
+</p>
