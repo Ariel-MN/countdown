@@ -14,7 +14,28 @@ if (weekdayNumber == 4) {
     countDownDate.setHours(17,30,1); // Saturday meeting starts at 5:30 pm
 } else {
     // Notifies that there are no meetings
-    document.getElementById("count").innerHTML = '<h4 class="text-muted">No hay una reunión programada para hoy</h4>';
+    document.getElementById("alert").innerHTML = '<h4 class="text-muted">No hay una reunión programada para hoy</h4>';
+    if (weekdayNumber <= 4) {
+        // Notifies next meeting date for Thursday
+        document.getElementById("count").innerHTML = '<h5 class="text-muted">Próxima reunión: ' + getNextDayOfTheWeek("Thursday", false) + '</h5>';
+    } else {
+        // Notifies next meeting date for Saturday
+        document.getElementById("count").innerHTML = '<h5 class="text-muted">Próxima reunión: ' + getNextDayOfTheWeek("Saturday", false) + '</h5>';
+    }
+}
+
+// Find the closest date of the given day
+function getNextDayOfTheWeek(dayName, excludeToday = true, refDate = new Date()) {
+    const dayOfWeek = ["sun","mon","tue","wed","thu","fri","sat"]
+                      .indexOf(dayName.slice(0,3).toLowerCase());
+    if (dayOfWeek < 0) return;
+    refDate.setHours(0,0,0,0);
+    refDate.setDate(refDate.getDate() + +!!excludeToday + 
+                    (dayOfWeek + 7 - refDate.getDay() - +!!excludeToday) % 7);
+    
+    // Format date readable
+    var date = refDate.getDate() + '/' + (refDate.getMonth()+1) + '/' + refDate.getFullYear()
+    return date;
 }
 
 // ContDown
