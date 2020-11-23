@@ -18,3 +18,5 @@
     <img width="80%" src="https://ariel-mn.github.io/countdown/static/img/poster.png" alt="Presentation video" />
   </a>
 </p>
+
+[link](https://ariel-mn.github.io/countdown/static/img/poster.png){:target="_blank"}
