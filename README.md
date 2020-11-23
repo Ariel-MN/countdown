@@ -6,6 +6,8 @@
 
 ## Countdown for meetings
 
+<br>
+
 <span align="center">
   
   ### Presentation Video
@@ -14,9 +16,7 @@
 
 
 <p align="center">
-  <a href="https://ariel-mn.github.io/countdown/static/img/presentation.mp4" title="Countdown presentation" target="_blank">
+  <a href="https://ariel-mn.github.io/countdown/static/img/presentation.mp4" title="Countdown presentation">
     <img width="80%" src="https://ariel-mn.github.io/countdown/static/img/poster.png" alt="Presentation video" />
   </a>
 </p>
-
-[link](https://ariel-mn.github.io/countdown/static/img/poster.png){:target="_blank"}
