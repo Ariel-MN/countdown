@@ -1,26 +1,36 @@
-// Get day number of the week, 4 is Thursday and 6 is Saturday
+// Get day number of the week
 var dateObj = new Date();
 var weekdayNumber = dateObj.getDay();
 
 // Run ContDown if is Thursday or Saturday
 var countDownDate = null;
-if (weekdayNumber == 4) {
-    // Thursday time to count down
-    var countDownDate = dateObj;
-    countDownDate.setHours(19,30,1); // Thursday meeting starts at 7:30 pm
-} else if (weekdayNumber == 6) {
-    // Saturday time to count down
-    var countDownDate = dateObj;
-    countDownDate.setHours(17,30,1); // Saturday meeting starts at 5:30 pm
-} else {
-    // Notifies that there are no meetings
-    document.getElementById("alert").innerHTML = '<h4 class="text-muted">No hay una reunión programada para hoy</h4>';
-    if (weekdayNumber <= 4) {
-        // Notifies next meeting date for Thursday
-        document.getElementById("count").innerHTML = '<h5 class="text-muted">Próxima reunión: ' + getNextDayOfTheWeek("Thursday", false) + '</h5>';
-    } else {
-        // Notifies next meeting date for Saturday
-        document.getElementById("count").innerHTML = '<h5 class="text-muted">Próxima reunión: ' + getNextDayOfTheWeek("Saturday", false) + '</h5>';
+switch(weekdayNumber) {
+    // 1 Lunedì, 2 Martedì, 3 Mercoledì, 4 Giovedì, 5 Venerdì, 6 Sabato, 0 Domenica
+
+/*  case #: // Special Day time to count down
+        var countDownDate = dateObj;
+        countDownDate.setHours(00,00,1); // Special meeting starts at 0:00 pm
+        break;  */
+
+    case 4: // Thursday time to count down
+        var countDownDate = dateObj;
+        countDownDate.setHours(19,30,1); // Thursday meeting starts at 7:30 pm
+        break;
+
+    case 6: // Saturday time to count down
+        var countDownDate = dateObj;
+        countDownDate.setHours(17,30,1); // Saturday meeting starts at 5:30 pm
+        break;
+
+    default:
+        // Notifies that there are no meetings
+        document.getElementById("alert").innerHTML = '<h4 class="text-muted">No hay una reunión programada para hoy</h4>';
+        if (weekdayNumber <= 4) {
+            // Notifies next meeting date for Thursday
+            document.getElementById("count").innerHTML = '<h5 class="text-muted">Próxima reunión: ' + getNextDayOfTheWeek("Thursday", false) + '</h5>';
+        } else {
+            // Notifies next meeting date for Saturday
+            document.getElementById("count").innerHTML = '<h5 class="text-muted">Próxima reunión: ' + getNextDayOfTheWeek("Saturday", false) + '</h5>';
     }
 }
 
@@ -58,14 +68,17 @@ if (countDownDate) {
 
         // Display the result in the element with id="count" and id="alert"
         switch(true) {
+
             case days > 0:
                 // Count the days
                 document.getElementById("count").innerHTML = '<h3>' + days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's ' + '</h3>';
                 break;
+
             case hours > 0:
                 // Count the hours
                 document.getElementById("count").innerHTML = '<h3>' + hours + 'h ' + minutes + 'm ' + seconds + 's ' + '</h3>';
                 break;
+
             case minutes > 0:
                 // Warns that the meeting is about to start, count the minutes
                 document.getElementById("count").innerHTML = '<h3>' + minutes + 'm ' + seconds + 's ' + '</h3>';
@@ -73,16 +86,19 @@ if (countDownDate) {
                     document.getElementById("alert").innerHTML = '<h3>La reunión comenzará dentro de poco,<br> se nos invita a apagar los micrófonos</h3>';
                 }
                 break;
+
             case seconds > 0:
                 // Warns that the meeting is about to start, count the seconds in orange
                 document.getElementById("alert").innerHTML = '<h3>La reunión comenzará dentro de poco,<br> se nos invita a apagar los micrófonos</h3>';
                 document.getElementById("count").innerHTML = '<h3 class="text-orange">' + seconds + 's ' + '</h3>';
                 break;
+
             case hours < -2:
                 // If the meeting has finished, write some text
                 document.getElementById("count").innerHTML = '';
                 document.getElementById("alert").innerHTML = '<h3>Reunión Terminada</h3>';
                 break;
+
             case seconds <= 0:
                 // If the meeting has started, write some text
                 document.getElementById("count").innerHTML = '';
