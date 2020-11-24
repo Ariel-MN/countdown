@@ -4,10 +4,10 @@ var weekdayNumber = dateObj.getDay();
 
 // Run ContDown if is Thursday or Saturday
 var countDownDate = null;
-if (weekdayNumber == 4) {
+if (weekdayNumber == 2) {
     // Thursday time to count down
     var countDownDate = dateObj;
-    countDownDate.setHours(19,30,1); // Thursday meeting starts at 7:30 pm
+    countDownDate.setHours(20,20,1); // Thursday meeting starts at 7:30 pm
 } else if (weekdayNumber == 6) {
     // Saturday time to count down
     var countDownDate = dateObj;
@@ -69,13 +69,13 @@ if (countDownDate) {
             case minutes > 0:
                 // Warns that the meeting is about to start, count the minutes
                 document.getElementById("count").innerHTML = '<h3>' + minutes + 'm ' + seconds + 's ' + '</h3>';
-                if (minutes < 3) {
-                    document.getElementById("alert").innerHTML = '<h3>La reunión comenzará dentro de poco</h3>';
+                if (minutes < 2) {
+                    document.getElementById("alert").innerHTML = '<h3>La reunión comenzará dentro de poco, se nos invita a apagar los micrófonos</h3>';
                 }
                 break;
             case seconds > 0:
                 // Warns that the meeting is about to start, count the seconds in orange
-                document.getElementById("alert").innerHTML = '<h3>La reunión comenzará dentro de poco</h3>';
+                document.getElementById("alert").innerHTML = '<h3>La reunión comenzará dentro de poco, se nos invita a apagar los micrófonos</h3>';
                 document.getElementById("count").innerHTML = '<h3 class="text-orange">' + seconds + 's ' + '</h3>';
                 break;
             case hours < -2:
