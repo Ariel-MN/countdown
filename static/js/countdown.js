@@ -7,7 +7,7 @@ var countDownDate = null;
 if (weekdayNumber == 2) {
     // Thursday time to count down
     var countDownDate = dateObj;
-    countDownDate.setHours(20,20,1); // Thursday meeting starts at 7:30 pm
+    countDownDate.setHours(20,25,1); // Thursday meeting starts at 7:30 pm
 } else if (weekdayNumber == 6) {
     // Saturday time to count down
     var countDownDate = dateObj;
