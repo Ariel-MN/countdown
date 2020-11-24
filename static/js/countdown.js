@@ -4,10 +4,10 @@ var weekdayNumber = dateObj.getDay();
 
 // Run ContDown if is Thursday or Saturday
 var countDownDate = null;
-if (weekdayNumber == 2) {
+if (weekdayNumber == 4) {
     // Thursday time to count down
     var countDownDate = dateObj;
-    countDownDate.setHours(20,52,1); // Thursday meeting starts at 7:30 pm
+    countDownDate.setHours(19,30,1); // Thursday meeting starts at 7:30 pm
 } else if (weekdayNumber == 6) {
     // Saturday time to count down
     var countDownDate = dateObj;
