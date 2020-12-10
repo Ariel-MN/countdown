@@ -7,10 +7,10 @@ var countDownDate = null;
 switch(weekdayNumber) {
     // 1 Lunedì, 2 Martedì, 3 Mercoledì, 4 Giovedì, 5 Venerdì, 6 Sabato, 0 Domenica
 
-/*  case #: // Special Day time to count down
+    case 2: // Special Day time to count down
         var countDownDate = dateObj;
-        countDownDate.setHours(00,00,1); // Special meeting starts at 0:00 pm
-        break;  */
+        countDownDate.setHours(19,30,1); // Special meeting starts at 7:30 pm
+        break;
 
     case 4: // Thursday time to count down
         var countDownDate = dateObj;
