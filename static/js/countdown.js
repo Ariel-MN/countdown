@@ -81,11 +81,12 @@ if (countDownDate) {
                 break;
 
             case minutes > 0:
-                // Warns that the meeting is about to start, count the minutes
+                // Count the minutes
                 document.getElementById("count").innerHTML = '<h3>' + minutes + 'm ' + seconds + 's ' + '</h3>';
-                if (minutes < 2) {
+                // Warns that the meeting is about to start
+                /* if (minutes < 2) {
                     document.getElementById("alert").innerHTML = '<h3>La reunión comenzará dentro de poco,<br> se nos invita a apagar los micrófonos</h3>';
-                }
+                } */
                 break;
 
             case seconds > 0:
