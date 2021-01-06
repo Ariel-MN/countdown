@@ -2,10 +2,10 @@
 function Clock() {
     // Canvas configuration
     this.canvas=document.getElementsByTagName('canvas')[0];
-    this.canvas.width=400;
-    this.canvas.height=400;
+    this.canvas.width=200;
+    this.canvas.height=200;
     this.ctx = this.canvas.getContext('2d');
-    this.ctx.scale(2, 2);
+    this.ctx.scale(1, 1);
 
     this.setHour();
     var self=this;
