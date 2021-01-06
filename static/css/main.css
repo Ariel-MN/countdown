@@ -3,7 +3,12 @@ body {
     cursor: default;
 }
 #clock {
-    max-width:90%;
+    position:fixed;
+    width: 10%;
+    min-width:100px;
+    bottom:1em;
+    right:1em;
+    opacity:0.3;
 }
 .text-orange {
     color:orangered;
