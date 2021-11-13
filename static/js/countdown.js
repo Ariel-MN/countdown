@@ -7,20 +7,19 @@ var countDownDate = null;
 switch(weekdayNumber) {
     // 1 Lunedì, 2 Martedì, 3 Mercoledì, 4 Giovedì, 5 Venerdì, 6 Sabato, 0 Domenica
 
-    
     case 2: // Special Day time to count down
         var countDownDate = dateObj;
         countDownDate.setHours(19,30,1); // Special meeting starts at 7:30 pm
         break;
-    
+
     case 4: // Thursday time to count down
         var countDownDate = dateObj;
-        countDownDate.setHours(19,30,1); // Thursday meeting starts at 7:30 pm
+        countDownDate.setHours(19,30,1); // Thursday meeting starts at 7:30 pm (19,30,1)
         break;
 
     case 6: // Saturday time to count down
         var countDownDate = dateObj;
-        countDownDate.setHours(17,30,1); // Saturday meeting starts at 5:30 pm
+        countDownDate.setHours(17,30,1); // Saturday meeting starts at 5:30 pm (17,30,1)
         break;
 
     default:
@@ -43,7 +42,7 @@ function getNextDayOfTheWeek(dayName, excludeToday = true, refDate = new Date())
     refDate.setHours(0,0,0,0);
     refDate.setDate(refDate.getDate() + +!!excludeToday + 
                     (dayOfWeek + 7 - refDate.getDay() - +!!excludeToday) % 7);
-    
+
     // Format date readable
     var date = refDate.getDate() + '/' + (refDate.getMonth()+1) + '/' + refDate.getFullYear()
     return date;
@@ -51,7 +50,11 @@ function getNextDayOfTheWeek(dayName, excludeToday = true, refDate = new Date())
 
 // ContDown
 if (countDownDate) {
-    
+
+    // Get video and info elements
+    var video=document.getElementById("video");
+    var info=document.getElementById("info");
+
     // Update the count down every 1 second
     var x = setInterval(function() {
 
@@ -80,13 +83,18 @@ if (countDownDate) {
                 document.getElementById("count").innerHTML = '<h3>' + hours + 'h ' + minutes + 'm ' + seconds + 's ' + '</h3>';
                 break;
 
+            case (minutes == 1 && seconds < 8 || minutes == 0 && seconds > 0):
+                // Warns that the meeting is about to start, loading the video
+                info.setAttribute('style', 'display:none!important');
+                video.setAttribute('style', 'display:flex!important');
+                if (minutes == 1) {
+                    loadVideo(60+seconds); 
+                } else { loadVideo(seconds); }
+                break;
+            
             case minutes > 0:
                 // Count the minutes
                 document.getElementById("count").innerHTML = '<h3>' + minutes + 'm ' + seconds + 's ' + '</h3>';
-                // Warns that the meeting is about to start
-                /* if (minutes < 2) {
-                    document.getElementById("alert").innerHTML = '<h3>La reunión comenzará dentro de poco,<br> se nos invita a apagar los micrófonos</h3>';
-                } */
                 break;
 
             case seconds > 0:
@@ -102,11 +110,13 @@ if (countDownDate) {
                 break;
 
             case seconds <= 0:
-                // If the meeting has started, write some text
+                // If the meeting has started, write some text and hide the video
+                info.setAttribute('style', 'display:flex!important');
+                video.setAttribute('style', 'display:none!important');
                 document.getElementById("count").innerHTML = '';
                 document.getElementById("alert").innerHTML = '<h3>Reunión Iniciada</h3>';
         }
-    
+
         // Stops the function after 3 hours from the start of the meeting
         if (hours < -3) {
             clearInterval(x);
