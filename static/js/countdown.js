@@ -75,15 +75,17 @@ if (countDownDate) {
 
             case days > 0:
                 // Count the days
+                info.setAttribute('style', 'display:flex!important');
                 document.getElementById("count").innerHTML = '<h3>' + days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's ' + '</h3>';
                 break;
 
             case hours > 0:
                 // Count the hours
+                info.setAttribute('style', 'display:flex!important');
                 document.getElementById("count").innerHTML = '<h3>' + hours + 'h ' + minutes + 'm ' + seconds + 's ' + '</h3>';
                 break;
 
-            case (minutes == 1 && seconds < 8 || minutes == 0 && seconds > 0):
+            case (minutes == 1 && seconds <= 7 || minutes == 0 && seconds >= 0):
                 // Warns that the meeting is about to start, loading the video
                 info.setAttribute('style', 'display:none!important');
                 video.setAttribute('style', 'display:flex!important');
@@ -91,26 +93,29 @@ if (countDownDate) {
                     loadVideo(60+seconds); 
                 } else { loadVideo(seconds); }
                 break;
-            
+
             case minutes > 0:
                 // Count the minutes
+                info.setAttribute('style', 'display:flex!important');
                 document.getElementById("count").innerHTML = '<h3>' + minutes + 'm ' + seconds + 's ' + '</h3>';
                 break;
 
             case seconds > 0:
                 // Warns that the meeting is about to start, count the seconds in orange
+                info.setAttribute('style', 'display:flex!important');
                 document.getElementById("alert").innerHTML = '<h3>La reunión comenzará dentro de poco,<br> se nos invita a apagar los micrófonos</h3>';
                 document.getElementById("count").innerHTML = '<h3 class="text-orange">' + seconds + 's ' + '</h3>';
                 break;
 
             case hours < -2:
                 // If the meeting has finished, write some text
+                info.setAttribute('style', 'display:flex!important');
                 document.getElementById("count").innerHTML = '';
                 document.getElementById("alert").innerHTML = '<h3>Reunión Terminada</h3>';
                 break;
 
             case seconds <= 0:
-                // If the meeting has started, write some text and hide the video
+                // If the meeting has started, write some text
                 info.setAttribute('style', 'display:flex!important');
                 video.setAttribute('style', 'display:none!important');
                 document.getElementById("count").innerHTML = '';
