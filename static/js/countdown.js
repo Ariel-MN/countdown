@@ -17,7 +17,7 @@ switch(weekdayNumber) {
         countDownDate.setHours(19,30,1); // Thursday meeting starts at 7:30 pm (19,30,1)
         break;
 
-    case 6: // Saturday time to count down
+    case 0: // Saturday time to count down (6)
         var countDownDate = dateObj;
         countDownDate.setHours(17,30,1); // Saturday meeting starts at 5:30 pm (17,30,1)
         break;
@@ -73,18 +73,6 @@ if (countDownDate) {
         // Display the result in the element with id="count" and id="alert"
         switch(true) {
 
-            case days > 0:
-                // Count the days
-                info.setAttribute('style', 'display:flex!important');
-                document.getElementById("count").innerHTML = '<h3>' + days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's ' + '</h3>';
-                break;
-
-            case hours > 0:
-                // Count the hours
-                info.setAttribute('style', 'display:flex!important');
-                document.getElementById("count").innerHTML = '<h3>' + hours + 'h ' + minutes + 'm ' + seconds + 's ' + '</h3>';
-                break;
-
             case (minutes == 1 && seconds <= 7 || minutes == 0 && seconds >= 0):
                 // Warns that the meeting is about to start, loading the video
                 info.setAttribute('style', 'display:none!important');
@@ -94,22 +82,29 @@ if (countDownDate) {
                 } else { loadVideo(seconds); }
                 break;
 
+            case days > 0:
+                // Count the days
+                document.getElementById("count").innerHTML = '<h3>' + days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's ' + '</h3>';
+                break;
+
+            case hours > 0:
+                // Count the hours
+                document.getElementById("count").innerHTML = '<h3>' + hours + 'h ' + minutes + 'm ' + seconds + 's ' + '</h3>';
+                break;
+
             case minutes > 0:
                 // Count the minutes
-                info.setAttribute('style', 'display:flex!important');
                 document.getElementById("count").innerHTML = '<h3>' + minutes + 'm ' + seconds + 's ' + '</h3>';
                 break;
 
             case seconds > 0:
                 // Warns that the meeting is about to start, count the seconds in orange
-                info.setAttribute('style', 'display:flex!important');
                 document.getElementById("alert").innerHTML = '<h3>La reunión comenzará dentro de poco,<br> se nos invita a apagar los micrófonos</h3>';
                 document.getElementById("count").innerHTML = '<h3 class="text-orange">' + seconds + 's ' + '</h3>';
                 break;
 
             case hours < -2:
                 // If the meeting has finished, write some text
-                info.setAttribute('style', 'display:flex!important');
                 document.getElementById("count").innerHTML = '';
                 document.getElementById("alert").innerHTML = '<h3>Reunión Terminada</h3>';
                 break;

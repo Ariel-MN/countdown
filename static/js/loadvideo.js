@@ -15,3 +15,26 @@ function loadVideo(time) {
         video.appendChild(s);
     }
 }
+
+/* Fullscreen mode */
+function requestFullScreen() {
+    // Make the body go full screen.
+    var element = document.body;
+
+    // Supports most browsers and their versions.
+    var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullScreen;
+
+    if (requestMethod) { // Native full screen.
+        requestMethod.call(element);
+    } else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
+        var wscript = new ActiveXObject("WScript.Shell");
+        if (wscript !== null) {
+            wscript.SendKeys("{F11}");
+        }
+    }
+
+    // Hide fullscreen button
+    if (requestMethod || wscript) {
+        document.getElementById("fullscreen").style.display="none";
+    }
+}
