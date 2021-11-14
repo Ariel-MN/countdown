@@ -26,7 +26,11 @@ body {
     margin-bottom: 0;
     background-color: transparent;
 }
-
+#fullscreen {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
 /* Descktop */
 @media(min-width: 1400px) {
     #clock {
