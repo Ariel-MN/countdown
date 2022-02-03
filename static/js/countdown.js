@@ -19,7 +19,7 @@ switch(weekdayNumber) {
 
     case 6: // Saturday time to count down
         var countDownDate = dateObj;
-        countDownDate.setHours(17,30,1); // Saturday meeting starts at 5:30 pm (17,30,1)
+        countDownDate.setHours(17,00,1); // Saturday meeting starts at 5:00 pm (17,00,1)
         break;
 
     default:
